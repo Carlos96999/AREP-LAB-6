@@ -7,9 +7,9 @@ public class App
 {
     public static void main( String[] args )
     {
-    	secure("llaves/ecikeystore.p12", "123456", "llaves/myTrustStore", "654321");
-    	port(getPort());
-        get("/acceso", (req, res) -> "Hola, desde un servicio seguro");
+		port(getPort());
+    	secure("keystores/ecikeystore.p12", "123456", "keystores/myTrustStore", "654321");
+        get("/servicio", (req, res) -> "Hola, desde un servicio seguro");
     }
     
     public static int getPort()

@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import com.google.common.hash.Hashing;
 import com.google.gson.Gson;
+import spark.staticfiles.StaticFilesConfiguration;
 
 public class App 
 {
@@ -23,12 +24,12 @@ public class App
     	SecureURLReader.ssl();
     	Gson gson = new Gson();
     	Map<String, String> usuarios = new HashMap<>();
-    	usuarios.put("carlos@mail.com", Hashing.sha256().hashString("hola12", StandardCharsets.UTF_8).toString());
+    	usuarios.put("carlos@gmail.com", Hashing.sha256().hashString("hola12", StandardCharsets.UTF_8).toString());
     	staticFileLocation("/static");
-    	secure("llaves/ecikeystore.p12", "123456", null, null);
+    	secure("keystores/ecikeystore.p12", "123456", null, null);
     	port(getPort());
         get("/helloservice", (req, res) -> "Hola, desde un login seguro");
-        get("/", (req, res) -> {res.redirect("index.html"); return "";});
+        get("/", (req, res) -> {res.redirect("a.html"); return "";});
         post("/login", (req, res) -> {
         	req.body();
         	req.session(true);
@@ -47,8 +48,8 @@ public class App
         	}
         	return respuesta;
         });
-        get("/acceso", (req, res) -> {
-        	String respuesta = SecureURLReader.readURL("https://localhost:5001/acceso");
+        get("/servicio", (req, res) -> {
+        	String respuesta = SecureURLReader.readURL("https://localhost:5001/servicio");
         	System.out.println(respuesta);
         	return respuesta;
         });
@@ -60,7 +61,7 @@ public class App
     	
     	if(System.getenv("PORT") != null) puerto = Integer.parseInt(System.getenv("PORT"));
     	else puerto = 5000;
-    	
+    	System.out.println("Listo para recibir...\nPuerto "+puerto);
     	return puerto;
     }
 }

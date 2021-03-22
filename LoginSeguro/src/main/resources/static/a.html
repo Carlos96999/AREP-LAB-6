@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio de Sesión Seguro</title>
+</head>
+<body>
+	<div style="padding:30px; width:96.9%; background:#008000; color:white; font-size:400%; position:absolute ; top:0px ; left:0px">
+	Inicio de Sesión Seguro
+	</div>
+	<div style="padding:30px; width:96.9%; background:#005A80; color:white; font-size:150%; position:absolute ; top:120px ; left:0px">
+	Correo Electrónico
+	</div>
+	<div style="padding:30px; width:96.9%; background:#005A80; color:white; font-size:150%; position:absolute ; top:241px ; left:0px">
+	Contraseña
+	</div>
+    <div class="ic">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email"id="email" placeholder="Correo Electrónico" style="width:500px ; font-size:150% ; position:absolute ; top:207px ; text-align:center; left:0px ">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Contraseña" style="width:500px ; font-size:150% ; position:absolute ; top:328px ; text-align:center; left:0px">
+        </div>
+        <button onclick="apiClient.login()" style="width:508px ; font-size:150% ; position:absolute ; top:362px ; text-align:center; left:0px">Iniciar Sesión</button>
+    </div>
+<body style = "background:#005A80">
+</body>
+<script type="text/javascript" src="js/apiClient.js" ></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+</html>

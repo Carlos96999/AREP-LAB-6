@@ -25,7 +25,7 @@ public class SecureURLReader
 {
 	public static void ssl() throws KeyStoreException, NoSuchAlgorithmException, CertificateException, FileNotFoundException, IOException, KeyManagementException
 	{
-		File trustStoreFile = new File("llaves/myTrustStore");
+		File trustStoreFile = new File("keystores/myTrustStore");
 		char[] trustStorePassword = "654321".toCharArray();
 		KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
 		trustStore.load(new FileInputStream(trustStoreFile), trustStorePassword);

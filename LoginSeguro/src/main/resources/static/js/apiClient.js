@@ -1,24 +1,18 @@
 var apiClient = (function () {
-    var url="localhost:5000";
+    var url="https://localhost:5000";
 
-    function info() 
-	{
-        axios.get(url+"/acceso").then(res=>{
-            console.log(url+"/acceso")
-            $("#acceso").text(res.data);
+    function info() {
+
+        axios.get(url+"/servicio").then(res=>{
+            console.log(url+"/servicio")
+            $("#servicio").text(res.data);
         })
     }
     function login(){
-        var user={email:document.getElementById("correo").value,password:document.getElementById("contrasena").value}
+        var user={email:document.getElementById("email").value,password:document.getElementById("password").value}
         axios.post(url+"/login",user).then(res=>{
-			if(res.data != "")
-			{
-				alert(res.data)
-			}
-			else
-			{
-				window.location.href="accesoAutorizado.html";
-			}
+            //window.location.href="authorized.html";
+			window.location.href="b.html";
         })
     }
 
